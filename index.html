@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio Website</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <!-- Fonte Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Ícones das redes sociais (Boxicons) -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Cabeçalho fixo -->
+    <header class="header">
+        <div class="header__container">
+            <a href="#home" class="logo">Patrícia <span class="logo__highlight">Liane</span></a>
+
+            <nav class="navbar">
+                <a href="#home" class="navbar__link active">Home</a>
+                <a href="#educacao" class="navbar__link">Educação</a>
+                <a href="#skills" class="navbar__link">Skills</a>
+                <a href="#contato" class="navbar__link">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Home -->
+        <section class="home" id="home">
+            <div class="home__content">
+                <h1 class="home__title">Olá, Eu sou a <span class="highlight">Patrícia</span></h1>
+
+                <h2 class="home__subtitle"> <span class="typing highlight" id="typing-text"></span><span class="typing__cursor" aria-hidden="true"></span></h2>
+
+                <p class="home__description">
+                    Atualmente sou estudante de Ciência da Computação e durante a minha formação<br>
+                    venho desenvolvendo experiência acadêmica em Python, C, HTML, CSS e JavaScript<br>
+                    E estou sempre buscando fortalecer minha base em desenvolvimento e lógica de programação.
+                </p>
+
+                <!-- Troque os endereços abaixo pelos links dos seus perfis -->
+                <div class="social home__social">
+                    <a href="https://www.linkedin.com/in/patricialiane/" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <i class="bx bxl-linkedin-square"></i>
+                    </a>
+                    <a href="https://github.com/Paty404" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <i class="bx bxl-github"></i>
+                    </a>
+                </div>
+
+                <div class="home__buttons">
+                    <a href="#contato" class="button button--outline">Contato</a>
+                </div>
+            </div>
+
+            <div class="home__picture">
+                <img src="img/1.jpeg" alt="Retrato de perfil">
+            </div>
+        </section>
+
+        <!-- Educação -->
+        <section class="education" id="educacao">
+            <h2 class="section-title">Educação</h2>
+
+            <div class="timeline">
+                <article class="timeline__item timeline__item--left">
+                    <span class="timeline__year">2025</span>
+                    <div class="timeline__card">
+                        <h3>Conclusão do Ensino Médio</h3>
+                        <p>Em 2025 conclui o ensino médio.<br> </p>
+                    </div>
+                </article>
+
+                <article class="timeline__item timeline__item--right">
+                    <span class="timeline__year">2026</span>
+                    <div class="timeline__card">
+                        <h3>Iniciei a graduação em Ciência da Computação</h3>
+                        <p>Esse é ano é o começo de uma incrível jornada que eu tenho pela frente.<br>
+                            Iniciei a graduação em Bacharel de Ciência da Computação, realizando um sonho de estudar uma aréa pela qual<br>
+                        eu tenho muita paixão e curiosidade.</p>
+                    </div>
+                </article>
+
+                <article class="timeline__item timeline__item--left">
+                    <span class="timeline__year">2027</span>
+                    <div class="timeline__card">
+                        <h3>Carregando...</h3>
+                    </div>
+                </article>
+
+                <article class="timeline__item timeline__item--right">
+                    <span class="timeline__year">2028</span>
+                    <div class="timeline__card">
+                        <h3>Carregando...</h3>    
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section class="skills" id="skills">
+            <h2 class="section-title">Skills</h2>
+
+            <ul class="skills__panel">
+                <li class="skill-card">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/python/python-original.svg" alt="">
+                    <span>Python</span>
+                </li>
+                <li class="skill-card">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/html5/html5-original.svg" alt="">
+                    <span>HTML</span>
+                </li>
+                <li class="skill-card">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/css3/css3-original.svg" alt="">
+                    <span>CSS</span>
+                </li>
+                <li class="skill-card">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/javascript/javascript-original.svg" alt="">
+                    <span>JavaScript</span>
+                </li>
+                <li class="skill-card">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/figma/figma-original.svg" alt="">
+                    <span>Figma</span>
+                </li>
+                <li class="skill-card">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/vscode/vscode-original.svg" alt="">
+                    <span>VScode</span>
+                </li>
+                <li class="skill-card">
+                    <img class="skill-card__icon--light" src="https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/icons/github/github-original.svg" alt="">
+                    <span>Github</span>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Contato -->
+        <section class="contact" id="contato">
+            <h2 class="section-title">Entre em <span class="highlight">Contato</span></h2>
+
+            <form class="contact__form" id="contact-form">
+    <div class="contact__fields">
+        <input type="text" name="name" placeholder="Nome Completo" aria-label="Full Name" required>
+        <input type="email" name="email" placeholder="Email" aria-label="Email" required>
+        <input type="tel" name="phone" placeholder="Telefone" aria-label="Phone Number">
+        <input type="text" name="subject" placeholder="Assunto" aria-label="Subject">
+    </div>
+
+    <div class="contact__message">
+        <textarea name="message" placeholder="Sua Mensagem" aria-label="Your Message" required></textarea>
+        <button type="submit" class="button button--filled button--send">Enviar Mensagem</button>
+        <p class="contact__feedback" id="form-feedback" role="status"></p>
+    </div>
+</form>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <div class="social footer__social">
+            <a href="https://www.linkedin.com/in/patricialiane/" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                        <i class="bx bxl-linkedin-square"></i>
+                    </a>
+                    <a href="https://github.com/Paty404" class="social__link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                        <i class="bx bxl-github"></i>
+                    </a>
+        </div>
+
+        <nav class="footer__links">
+            <a href="#home" class="navbar__link active">Home</a>
+                <a href="#educacao" class="navbar__link">Educação</a>
+                <a href="#skills" class="navbar__link">Skills</a>
+                <a href="#contato" class="navbar__link">Contato</a>
+        </nav>
+
+        <p class="footer__copyright">&copy; Patrícia Liane | Todos os Direitos Reservados</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

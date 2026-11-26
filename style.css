@@ -1,0 +1,731 @@
+/* ===== Variáveis e reset ===== */
+:root {
+    --bg-primary: #080808;
+    --bg-secondary: #131313;
+    --accent: #05ffec;
+    --accent-border: #7ffff4;
+    --accent-panel: rgba(5, 255, 236, 0.16);
+    --white: #ffffff;
+    --text-muted: #dddddd;
+    --placeholder: #7d7d7d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 1rem = 10px em uma tela de 1280x720 (tamanho da referência) */
+html {
+    font-size: 10px;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg-primary);
+    color: var(--white);
+    font-family: "Poppins", sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.highlight {
+    color: var(--accent);
+}
+
+/* ===== Barra de rolagem ===== */
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--accent);
+}
+
+/* Firefox, que não reconhece ::-webkit-scrollbar */
+@supports not selector(::-webkit-scrollbar) {
+    html {
+        scrollbar-width: thin;
+        scrollbar-color: var(--accent) var(--bg-primary);
+    }
+}
+
+/* ===== Cabeçalho ===== */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: 8rem;
+    background: rgba(8, 8, 8, 0.55);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+.header__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 96.8rem;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.logo__highlight {
+    color: var(--accent);
+    text-shadow: 0 0 1.4rem var(--accent);
+}
+
+.navbar {
+    display: flex;
+    gap: 2.7rem;
+}
+
+.navbar__link {
+    border-bottom: 2px solid transparent;
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.8rem;
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.navbar__link:hover,
+.navbar__link.active {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+/* ===== Home ===== */
+.home {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 96.8rem;
+    min-height: max(100vh, 56rem);
+    margin: 0 auto;
+}
+
+.home__content {
+    position: relative;
+    top: 1.2rem;
+    width: 47rem;
+}
+
+.home__title {
+    font-size: 4.52rem;
+    font-weight: 700;
+    line-height: 5.6rem;
+    white-space: nowrap;
+}
+
+.home__subtitle {
+    margin-top: -0.4rem;
+    font-size: 2.21rem;
+    font-weight: 700;
+    line-height: 3.5rem;
+}
+
+.typing__cursor {
+    display: inline-block;
+    width: 2px;
+    height: 3rem;
+    margin-left: 0.4rem;
+    background: var(--accent);
+    vertical-align: middle;
+    animation: blink 0.8s step-end infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+.home__description {
+    width: 47rem;
+    margin-top: 1.3rem;
+    font-size: 0.962rem;
+    font-weight: 600;
+    line-height: 1.75rem;
+}
+
+/* ===== Redes sociais (Home e rodapé) ===== */
+.social {
+    display: flex;
+}
+
+.social__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.9rem;
+    height: 2.9rem;
+    border: 2px solid var(--accent-border);
+    border-radius: 50%;
+    color: var(--accent);
+    font-size: 1.7rem;
+    transition: transform 0.3s, background-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+.social__link:hover {
+    background: var(--accent);
+    color: var(--bg-primary);
+    box-shadow: 0 0 1.8rem var(--accent);
+    transform: translateY(-0.8rem) scale(1.1);
+}
+
+.home__social {
+    gap: 1.1rem;
+    margin-top: 2rem;
+}
+
+/* ===== Botões ===== */
+.home__buttons {
+    display: flex;
+    gap: 1.1rem;
+    margin-top: 1.9rem;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 3.1rem;
+    border: 2px solid var(--accent);
+    border-radius: 3rem;
+    font-family: inherit;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.05rem;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+.button--filled {
+    background: var(--accent);
+    color: #073b38;
+    box-shadow: 0 0 1.5rem rgba(5, 255, 236, 0.65);
+}
+
+.button--outline {
+    color: var(--accent);
+}
+
+.home__buttons .button--filled {
+    width: 6.2rem;
+}
+
+.home__buttons .button--outline {
+    width: 8.5rem;
+}
+
+.home__buttons .button:hover {
+    transform: scale(1.06);
+}
+
+.button--outline:hover {
+    background: var(--accent);
+    color: #073b38;
+    box-shadow: 0 0 1.5rem rgba(5, 255, 236, 0.65);
+}
+
+/* ===== Foto da Home ===== */
+.home__picture {
+    position: relative;
+    top: 1.8rem;
+    flex-shrink: 0;
+    width: 41.1rem;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 50%;
+    background: #14a3a8;
+    box-shadow: 0 0 1.6rem rgba(5, 255, 236, 0.65);
+    transition: box-shadow 0.4s;
+}
+
+.home__picture:hover {
+    box-shadow: 0 0 2rem var(--accent), 0 0 5rem rgba(5, 255, 236, 0.6);
+}
+
+.home__picture img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ===== Título das seções ===== */
+.section-title {
+    font-size: 5rem;
+    font-weight: 700;
+    line-height: 7.5rem;
+    text-align: center;
+}
+
+/* ===== Educação ===== */
+.education {
+    min-height: 100vh;
+    padding: 10rem 0 8rem;
+    background: var(--bg-secondary);
+}
+
+.timeline {
+    position: relative;
+    width: 66.8rem;
+    margin: 3.3rem auto 0;
+}
+
+/* Linha vertical central */
+.timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 3px;
+    background: var(--accent);
+    box-shadow: 0 0 0.8rem rgba(5, 255, 236, 0.6);
+    transform: translateX(-50%);
+}
+
+.timeline__item {
+    position: relative;
+    width: 50%;
+    padding-top: 3.5rem;
+}
+
+.timeline__item + .timeline__item {
+    margin-top: 2.7rem;
+}
+
+.timeline__item:first-child {
+    margin-top: 0;
+}
+
+.timeline__item--left {
+    padding-right: 2.1rem;
+    text-align: right;
+}
+
+.timeline__item--right {
+    margin-left: 50%;
+    padding-left: 2.1rem;
+}
+
+/* Ponto da linha do tempo */
+.timeline__item::after {
+    content: "";
+    position: absolute;
+    top: 0.7rem;
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 1.5rem var(--accent);
+}
+
+.timeline__item--left::after {
+    right: -0.7rem;
+}
+
+.timeline__item--right::after {
+    left: -0.7rem;
+}
+
+.timeline__year {
+    position: absolute;
+    top: 0.4rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 2rem;
+}
+
+.timeline__item--left .timeline__year {
+    right: 2.2rem;
+}
+
+.timeline__item--right .timeline__year {
+    left: 1.9rem;
+}
+
+.timeline__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 31.4rem;
+    min-height: 11.4rem;
+    padding: 2rem 3.8rem;
+    border: 2px solid var(--accent-border);
+    border-radius: 6rem;
+    background: var(--bg-primary);
+    box-shadow: 0 0 0.9rem var(--accent), inset 0 0 0.4rem rgba(5, 255, 236, 0.35);
+}
+
+.timeline__item--left .timeline__card {
+    margin-left: auto;
+}
+
+.timeline__card h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 2rem;
+}
+
+.timeline__card p {
+    margin-top: 0.5rem;
+    color: var(--text-muted);
+    font-size: 1.06rem;
+    line-height: 1.48rem;
+}
+
+/* ===== Skills ===== */
+.skills {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 10rem 1.6rem 6rem;
+    background: var(--bg-primary);
+}
+
+/* 5 cartões por linha; a segunda linha fica centralizada */
+.skills__panel {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2.6rem 1.6rem;
+    width: 75.4rem;
+    margin-top: 4rem;
+    padding: 1.6rem;
+    border-radius: 1.2rem;
+    background: var(--accent-panel);
+}
+
+.skill-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 13rem;
+    height: 10.5rem;
+    border-radius: 0.8rem;
+    background: var(--bg-primary);
+    color: var(--accent);
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.skill-card img {
+    width: 4.6rem;
+    height: 4.6rem;
+}
+
+/* O ícone original do GitHub é preto: aqui ele fica branco */
+.skill-card__icon--light {
+    filter: invert(1);
+}
+
+/* ===== Contato ===== */
+.contact {
+    min-height: max(100vh, 72rem);
+    padding: 9.8rem 0 6rem;
+    background: var(--bg-primary);
+}
+
+.contact__form {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 4.2rem;
+}
+
+.contact__fields {
+    display: flex;
+    flex-direction: column;
+    gap: 1.95rem;
+    width: 35.2rem;
+}
+
+.contact__form input,
+.contact__form textarea {
+    width: 100%;
+    border: 1.5px solid var(--accent-border);
+    border-radius: 1.2rem;
+    outline: none;
+    background: transparent;
+    color: var(--white);
+    font-family: inherit;
+    font-size: 1.2rem;
+}
+
+.contact__form input {
+    height: 5.2rem;
+    padding: 0 1.6rem;
+}
+
+.contact__form textarea {
+    height: 20.8rem;
+    padding: 1.6rem;
+    resize: none;
+}
+
+.contact__form input:focus-visible,
+.contact__form textarea:focus-visible {
+    border-color: var(--accent);
+    box-shadow: 0 0 0.8rem rgba(5, 255, 236, 0.6);
+}
+
+.contact__form ::placeholder {
+    color: var(--placeholder);
+}
+
+.contact__message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 33.6rem;
+    margin-top: 0.6rem;
+}
+
+/* Remove o espaço extra abaixo do textarea */
+.contact__message textarea {
+    display: block;
+}
+
+.button--send {
+    width: 12.2rem;
+    height: 3.2rem;
+    margin-top: 2.5rem;
+}
+
+.button--send:hover {
+    transform: translateY(-0.3rem) scale(1.06);
+    box-shadow: 0 0 1rem var(--accent), 0 0 3rem var(--accent);
+}
+
+/* Aviso exibido após o envio; a altura mínima evita que a página "pule" */
+.contact__feedback {
+    min-height: 2rem;
+    margin-top: 1.6rem;
+    color: var(--accent);
+    font-size: 1.3rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* ===== Rodapé ===== */
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 16.7rem;
+    padding-top: 2.7rem;
+    background: var(--bg-secondary);
+}
+
+.footer__social {
+    gap: 1.5rem;
+}
+
+.footer__social .social__link {
+    width: 2.8rem;
+    height: 2.8rem;
+}
+
+.footer__links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.8rem 2.3rem;
+    margin-top: 1.6rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.footer__copyright {
+    margin-top: 3.3rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+/* ===== Responsividade ===== */
+
+/* Desktop: tudo cresce ou diminui na mesma proporção da referência */
+@media (min-width: 1025px) {
+    html {
+        font-size: clamp(8px, min(0.78125vw, 1.75vh), 20px);
+    }
+}
+
+/* Tablet e celular: elementos empilhados */
+@media (max-width: 1024px) {
+    .header__container,
+    .home {
+        width: 100%;
+        padding-left: 2.4rem;
+        padding-right: 2.4rem;
+    }
+
+    .home {
+        flex-direction: column;
+        justify-content: center;
+        gap: 4rem;
+        min-height: 100vh;
+        padding-top: 12rem;
+        padding-bottom: 6rem;
+        text-align: center;
+    }
+
+    .home__content,
+    .home__picture {
+        top: 0;
+    }
+
+    .home__content {
+        width: 100%;
+        max-width: 56rem;
+    }
+
+    .home__title {
+        font-size: clamp(3rem, 9vw, 4.5rem);
+        white-space: normal;
+    }
+
+    .home__description {
+        width: 100%;
+        font-size: 1.3rem;
+        line-height: 2.2rem;
+    }
+
+    .home__social,
+    .home__buttons {
+        justify-content: center;
+    }
+
+    .home__picture {
+        width: min(41.1rem, 78vw);
+    }
+
+    .section-title {
+        font-size: clamp(3.6rem, 10vw, 5rem);
+    }
+
+    .timeline {
+        width: calc(100% - 4rem);
+        max-width: 66.8rem;
+    }
+
+    .skills__panel {
+        width: 100%;
+        max-width: 75.4rem;
+    }
+
+    .contact__form {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.4rem;
+        padding: 0 2.4rem;
+    }
+
+    .contact__fields,
+    .contact__message {
+        width: 100%;
+        max-width: 48rem;
+    }
+
+    /* 16px evita o zoom automático ao tocar nos campos no iPhone */
+    .contact__form input,
+    .contact__form textarea {
+        font-size: 1.6rem;
+    }
+
+    .footer {
+        height: auto;
+        padding: 2.7rem 2rem 3rem;
+        text-align: center;
+    }
+}
+
+/* Celular: logo acima do menu e linha do tempo em uma coluna */
+@media (max-width: 640px) {
+    .header__container {
+        flex-direction: column;
+        justify-content: center;
+        gap: 0.8rem;
+    }
+
+    .navbar {
+        gap: 2rem;
+    }
+
+    .timeline::before {
+        left: 0.7rem;
+    }
+
+    .timeline__item--left,
+    .timeline__item--right {
+        width: 100%;
+        margin-left: 0;
+        padding-right: 0;
+        padding-left: 3rem;
+        text-align: left;
+    }
+
+    .timeline__item--left::after,
+    .timeline__item--right::after {
+        right: auto;
+        left: 0;
+    }
+
+    .timeline__item--left .timeline__year,
+    .timeline__item--right .timeline__year {
+        right: auto;
+        left: 3rem;
+    }
+
+    .timeline__card {
+        width: 100%;
+        padding: 2rem 2.8rem;
+        border-radius: 4rem;
+    }
+
+    .timeline__card p {
+        font-size: 1.3rem;
+        line-height: 1.9rem;
+    }
+
+    /* Dois cartões por linha */
+    .skill-card {
+        width: calc(50% - 0.8rem);
+    }
+}
+
+/* Respeita quem desativou animações no sistema */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
